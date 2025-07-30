@@ -1,0 +1,4 @@
+repository "fighter/fighter@9072202789772@cloud"
+  path "/"
+    br "/main"
+    co "/main"
