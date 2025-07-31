@@ -12,15 +12,16 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         input = GetComponent<PlayerInputController>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        // Déplacement gauche/droite
+        // Mouvement horizontal
         Vector2 move = input.MoveInput;
         rb.linearVelocity = new Vector2(move.x * moveSpeed, rb.linearVelocity.y);
 
-        // Saut simple
+        // Saut
         if (input.JumpPressed && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -29,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        // À remplacer plus tard par un vrai raycast
         return Mathf.Abs(rb.linearVelocity.y) < 0.01f;
     }
 }

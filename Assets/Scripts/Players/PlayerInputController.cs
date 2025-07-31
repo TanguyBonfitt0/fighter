@@ -6,8 +6,6 @@ public class PlayerInputController : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public bool JumpPressed { get; private set; }
 
-    private PlayerInputActions inputActions;
-
     public void OnMove(InputAction.CallbackContext context)
     {
         MoveInput = context.ReadValue<Vector2>();
