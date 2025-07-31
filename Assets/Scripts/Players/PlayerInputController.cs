@@ -8,24 +8,13 @@ public class PlayerInputController : MonoBehaviour
 
     private PlayerInputActions inputActions;
 
-    private void Awake()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        inputActions = new PlayerInputActions();
+        MoveInput = context.ReadValue<Vector2>();
     }
 
-    private void OnEnable()
+    public void OnJump(InputAction.CallbackContext context)
     {
-        inputActions.Enable();
-
-        inputActions.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
-        inputActions.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
-
-        inputActions.Player.Jump.performed += ctx => JumpPressed = true;
-        inputActions.Player.Jump.canceled += ctx => JumpPressed = false;
-    }
-
-    private void OnDisable()
-    {
-        inputActions.Disable();
+        JumpPressed = context.performed;
     }
 }

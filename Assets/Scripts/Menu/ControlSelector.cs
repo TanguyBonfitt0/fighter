@@ -6,12 +6,12 @@ public class ControlSelector : MonoBehaviour
     public void ChoisirClavier()
     {
         PlayerPrefs.SetString("controlType", "keyboard");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Arena");
     }
 
     public void ChoisirManette()
     {
         PlayerPrefs.SetString("controlType", "gamepad");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Arena");
     }
 }
